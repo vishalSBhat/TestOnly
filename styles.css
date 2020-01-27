@@ -1,0 +1,64 @@
+*{
+  box-sizing: border-box;
+}
+
+/* body{
+} */
+
+
+.sign-up{
+  margin: 5%;
+  text-align: center;
+}
+
+.heading{
+  margin: 1% 2%;
+}
+
+.form{
+  margin: 5% auto;
+  text-align: center;
+}
+
+input{
+  height: auto;
+  width: 300px;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid grey;
+}
+
+.fname{
+  margin-bottom: -1px;
+  margin-top: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.lname{
+  margin-bottom: -1px;
+}
+
+.email{
+  margin-bottom: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.ph-no-code{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 60px;
+  margin: 2px auto;
+}
+
+.ph-no{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 240px;
+  margin: 2px auto;
+}
+
+.btn{
+  margin: 20px auto;
+}
