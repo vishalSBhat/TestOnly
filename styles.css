@@ -2,10 +2,9 @@
   box-sizing: border-box;
 }
 
-/* body{
-} */
-
-
+body{
+  text-align: center;
+}
 .sign-up{
   margin: 5%;
   text-align: center;
@@ -13,6 +12,7 @@
 
 .heading{
   margin: 1% 2%;
+  font-size: 30px;
 }
 
 .form{
@@ -59,6 +59,76 @@ input{
   margin: 2px auto;
 }
 
+a{
+  color: white;
+  text-decoration: none;
+}
+
 .btn{
   margin: 20px auto;
+}
+
+.hakuna{
+  margin: 3% auto 5px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Indie Flower', cursive;
+}
+
+.success{
+  margin: 0 auto 10px;
+  max-width: 90%;
+  font-size: 40px;
+}
+
+.success-msg{
+  margin: 30px auto;
+  max-width: 80%;
+  font-size: 25px;
+}
+
+.bla{
+  margin: 2% auto 15px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Indie Flower', cursive;
+}
+
+.failure{
+  margin: 3% auto 0;
+  max-width: 90%;
+  font-size: 30px;
+}
+
+.failure-msg{
+  margin: 0 auto 10px;
+  max-width: 80%;
+  font-size: 25px;
+}
+
+@media only screen and (min-width: 600px){
+  .heading{
+    font-size: 80px;
+  }
+
+  .hakuna, .bla{
+    font-size: 60px;
+  }
+  .success{
+    font-size: 70px;
+  }
+
+  .success-msg{
+    max-width: 30%;
+    font-size: 30px;
+  }
+
+  .failure{
+    font-size: 40px;
+  }
+
+  .failure-msg{
+    max-width: 30%;
+    font-size: 30px;
+  }
 }
