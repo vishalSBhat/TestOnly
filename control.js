@@ -201,10 +201,10 @@ $('.password-toggler').on('click', e => {
     const ele = $(e.target).attr('data-for');
     if ($(ele).attr('type') === 'password') {
         $(ele).attr('type', 'text');
-        $(e.target).attr('src', './icons/icons/eye-slash-fill.svg')
+        $(e.target).attr('src', 'eye-slash-fill.svg')
     } else {
         $(ele).attr('type', 'password');
-        $(e.target).attr('src', './icons/icons/eye-fill.svg')
+        $(e.target).attr('src', 'eye-fill.svg')
     }
 });
 
