@@ -1,4 +1,215 @@
-*{
+* {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  outline: none;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: white;
+}
+
+.navbar-logo-holder {
+  padding: 15px;
+  border-radius: 100%;
+  -webkit-box-shadow: 3px 3px 20px #AEAEC0, -25px -25px 50px #FFFFFF inset, -15px -15px 50px #FFFFFF, 5px 5px 20px #AEAEC0 inset;
+          box-shadow: 3px 3px 20px #AEAEC0, -25px -25px 50px #FFFFFF inset, -15px -15px 50px #FFFFFF, 5px 5px 20px #AEAEC0 inset;
+}
+
+.navbar-logo {
+  height: min(12vw, 10vh);
+  width: min(12vw, 10vh);
+  border-radius: 100%;
+  -webkit-box-shadow: -5px -5px 25px #FFFFFF, 3px 3px 15px #AEAEC0;
+          box-shadow: -5px -5px 25px #FFFFFF, 3px 3px 15px #AEAEC0;
+}
+
+.navbar-brand {
+  color: #cccccc !important;
+  font-family: "Sen", sans-serif;
+  font-size: min(1.8rem, 6vw);
+}
+
+#advocate-login {
+  -webkit-box-shadow: inset 10px 10px 50px 10px #FFFFFF, inset -15px -15px 50px #AEAEC0, 10px 10px 50px 10px #FFFFFF, -1px -1px 30px #AEAEC0;
+          box-shadow: inset 10px 10px 50px 10px #FFFFFF, inset -15px -15px 50px #AEAEC0, 10px 10px 50px 10px #FFFFFF, -1px -1px 30px #AEAEC0;
+  border-radius: 30px;
+  text-align: center;
+}
+
+#advocate-server-validation-error {
+  margin-top: -12px;
+  visibility: hidden;
+  color: red;
+  font-size: 1rem;
+  font-family: "Baloo Thambi 2", cursive;
+}
+
+.text-field-container {
+  position: relative;
+}
+
+.text-field-container input,
+.text-field-container #qualification-selector-button {
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 10px #AEAEC0, inset 0 0 20px #FFFFFF;
+          box-shadow: 0 0 10px #AEAEC0, inset 0 0 20px #FFFFFF;
+  font-size: min(1.2rem, 8vw);
+  font-family: "Baloo Thambi 2", cursive;
+}
+
+.text-field-container .text-field::-webkit-input-placeholder {
+  font-size: 1rem;
+}
+
+.text-field-container .text-field:-ms-input-placeholder {
+  font-size: 1rem;
+}
+
+.text-field-container .text-field::-ms-input-placeholder {
+  font-size: 1rem;
+}
+
+.text-field-container .text-field::placeholder {
+  font-size: 1rem;
+}
+
+.text-field-container .text-field-placeholder,
+.text-field-container .error-img {
+  position: absolute;
+  top: 12px;
+}
+
+.text-field-container .text-field-placeholder {
+  pointer-events: none;
+  left: 20px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.text-field-container .error-img {
+  right: 12px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  visibility: hidden;
+}
+
+.text-field-container .error-message {
+  display: block;
+  color: red;
+  font-size: min(0.8rem, 4vw);
+  visibility: hidden;
+}
+
+.text-field-container input:focus + .text-field-placeholder,
+.text-field-container input:not(focus):valid + .text-field-placeholder {
+  font-size: min(0.8rem, 4vw);
+  top: -9px;
+  left: 6px;
+  padding: 0 5px;
+  background-color: #edf7fa;
+}
+
+.text-field-container .password-toggler {
+  height: 1.2rem;
+  width: 1.2rem;
+  position: absolute;
+  top: 12px;
+  right: 4.3rem;
+}
+
+.text-field-container .password-toggler:hover {
+  cursor: pointer;
+}
+
+.text-field-container #qualification-selector-button {
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.text-field-container #qualification-selector-button img {
+  height: 20px;
+  width: 20px;
+}
+
+.button {
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 10px #AEAEC0, -10px -10px 50px #FFFFFF;
+          box-shadow: 2px 2px 10px #AEAEC0, -10px -10px 50px #FFFFFF;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.button-hover {
+  -webkit-box-shadow: 3px 3px 10px #AEAEC0, inset 15px 15px 50px #FFFFFF, -25px -25px 50px #FFFFFF, inset -2px -2px 15px #AEAEC0;
+          box-shadow: 3px 3px 10px #AEAEC0, inset 15px 15px 50px #FFFFFF, -25px -25px 50px #FFFFFF, inset -2px -2px 15px #AEAEC0;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button-click {
+  -webkit-box-shadow: 2px 2px 10px #AEAEC0, inset -10px -10px 50px #FFFFFF, -10px -10px 50px #FFFFFF, inset 1px 1px 15px #AEAEC0;
+          box-shadow: 2px 2px 10px #AEAEC0, inset -10px -10px 50px #FFFFFF, -10px -10px 50px #FFFFFF, inset 1px 1px 15px #AEAEC0;
+}
+
+.sign-up-message {
+  font-size: 1rem;
+  font-family: "Sen", sans-serif;
+}
+
+.address-field-container {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-left: -5px;
+}
+
+.address-field-container input {
+  border-color: #e0dede;
+}
+
+#advocate-sign-up-qualification {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#qualification-selector-button:focus {
+  outline: none;
+}
+
+#qualification-selector {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-left: 1px;
+  min-width: 85px !important;
+  max-height: 120px !important;
+  overflow-y: scroll;
+}
+
+#qualification-selector::-webkit-scrollbar {
+  display: none;
+}
+
+.password-field-container .error-img {
+  right: min(2.1rem, 5vw);
+}
+/*# sourceMappingURL=style.css.map */
+
+/* *{
   box-sizing: border-box;
 }
 
@@ -132,3 +343,4 @@ a{
     font-size: 30px;
   }
 }
+ */
