@@ -23,7 +23,7 @@
     href="https://fonts.googleapis.com/css?family=Baloo+Da+2:600|Baloo+Thambi+2|Sen|Special+Elite&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
   <link
     rel="apple-touch-icon"
     sizes="180x180"
@@ -44,106 +44,119 @@
   <link rel="manifest" href="/images/site.webmanifest" />
 </head>
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark my-navbar">
+  <nav class="navbar navbar-expand-md my-navbar">
     <div class="container">
-      <span class="navbar-logo-holder"
-        ><img class="navbar-logo" src="advocate.png" alt="Advocate"
+      <button class="p-2 navbar-toggler navbar-toggler-left" type="button">
+        <img
+          class="navbar-no-toggle icon"
+          src="/icons/icons/list.svg"
+          alt="Menu"
+        />
+      </button>
+      <span class="ml-auto ml-sm-0 navbar-logo-holder"
+        ><img class="navbar-logo" src="/images/advocate.png" alt="Advocate"
       /></span>
-      <a href="/" class="navbar-brand py-2 pl-3 mr-auto">CLIENT MANAGER</a>
+      <a href="/account/" class="navbar-brand py-2 pl-2 mr-auto"
+        >CLIENT MANAGER</a
+      >
+      <div class="mx-3 my-2 mx-sm-0 my-sm-0 nav-items-container">
+        <div class="d-md-none mx-3 mt-2 mb-4">
+          <span class="navbar-no-toggle navbar-logo-holder"
+            ><img
+              class="navbar-no-toggle navbar-logo"
+              src="/images/advocate.png"
+              alt="Advocate"
+          /></span>
+          <span class="p-2 round-icon-holder" style="float: right;"
+            ><img class="icon" src="/icons/icons/arrow-left.svg" alt="Back"
+          /></span>
+        </div>
+        <ul class="navbar-nav ml-auto mr-2">
+          <li class="my-3 my-sm-0 pl-2 pr-1 nav-item">
+            <a href="/account/" class="m-1 nav-link">Home</a>
+          </li>
+          <li class="my-3 my-sm-0 px-2 nav-item">
+            <a href="/templates/" class="m-1 nav-link">Templates</a>
+          </li>
+          <li class="my-3 my-sm-0 pl-1 pr-2 nav-item">
+            <a href="/expenses/" class="m-1 nav-link">Expenses</a>
+          </li>
+        </ul>
+      </div>
+      <span id="profile-icon-holder" class="p-2 p-sm-3 round-icon-holder"
+        ><img
+          class="icon profile-icon"
+          src="/icons/icons/person-lines-fill.svg"
+          alt="Profile"
+      /></span>
     </div>
   </nav>
-<div class="container py-5">
-  <div class="row justify-content-center pt-5">
-    <form
-      id="advocate-login"
-      class="col-10 col-sm-8 col-md-4 pt-5 pb-2 px-0 my-3"
-      action="/"
-      method="POST"
-    >
-      <div class="row mx-4 mx-sm-5 my-2 text-field-container">
-        <input
-          type="text"
-          id="advocate-mail"
-          class="col-12 py-2 pl-3 text-field"
-          name="mail"
-          required
-        />
-        <span class="text-field-placeholder">e-Mail</span>
-        <img src="/images/error.jpg" class="error-img" alt="Error" />
-        <span class="mt-1 mb-0 error-message">
-          This field is required
-        </span>
+  
+  <div class="container py-2 dashboard-container">
+
+  <div class="px-3 py-2 dashboard">
+    <div>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur aut adipisci eos corporis non architecto aliquid omnis ad hic aspernatur nesciunt quasi est fugit cupiditate, nisi animi beatae sed. Eius?</p>
+    </div>
+  </div>
+
+  <div class="m-4 px-2 py-2 profile">
+    <div class="px-2 py-3 profile-container">
+
+      <div class="row mb-3">
+        <span id="profile-back-button-holder" class="mr-auto ml-sm-5 p-2 p-sm-3 round-icon-holder"
+            ><img
+            class="icon profile-back-button"
+              src="/icons/icons/arrow-left.svg"
+              alt="Profile"
+          /></span>
+        <a href="/logout" class="mr-sm-5"><button class="p-2 button">Logout</button></a>
       </div>
 
-      <div class="row mx-4 mx-sm-5 my-2 text-field-container">
-        <input
-          type="password"
-          id="advocate-password"
-          class="col-12 py-2 pl-3 text-field"
-          name="password"
-          required
-        />
-        <span class="text-field-placeholder">Password</span>
-        <span class="mt-1 mb-0 error-message">This field is required</span>
-        <img
-          src="eye-fill.svg"
-          alt="Show"
-          class="password-toggler"
-          title="Show Password"
-          style="right: 0.7rem;"
-          data-for="#advocate-password"
-        />
+      <div class="row justify-content-center profile-detail-container">
+
+        <div class="col-12 col-sm-7 px-3 py-4 mx-2 my-3 profile-detail">
+          <div class="row">
+            <h6 class="col-5">Name : </h4>
+            <h5 class="col-6"><%= lawyerDetails.fname %> <%= lawyerDetails.lname %></h3>
+          </div>
+          <div class="row">
+            <h6 class="col-5">Qualification : </h4>
+            <h5 class="col-6"><%= lawyerDetails.qualification %></h3>
+          </div>
+          <div class="row">
+            <h6 class="col-5">No. of registered clients : </h4>
+            <h5 class="col-6"><%= lawyerDetails.clientCount %></h3>
+          </div>
+        </div>
+      
+        <div class="col-12 col-sm-7 px-3 py-4 mx-2 my-3 profile-detail">
+          <div class="row">
+            <h6 class="col-12">Address : </h4>
+            <h5 class="offset-1 col-10 mt-2"><%= address %></h3>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-7 px-3 py-4 mx-2 my-3 profile-detail">
+          <div class="row">
+            <h6 class="col-5">e-Mail : </h4>
+            <h5 class="col-6"><%= lawyerDetails.mail %></h3>
+          </div>
+          <div class="row">
+            <h6 class="col-5">ph-No : </h4>
+            <h5 class="col-6"><%= lawyerDetails.phNo %></h3>
+          </div>
+        </div>
+
       </div>
-      <button class="button mx-auto my-0 py-2 px-3" type="submit">
-        LOGIN
-      </button>
-      <p class="mt-2 mb-1" id="advocate-server-validation-error">Error</p>
-    </form>
-  </div>
-  <div class="d-flex flex-column align-items-center">
-    <h6 class="mb-1 sign-up-message">Don't have an accoount??</h6>
-    <a href="/sign-up"
-      ><button class="btn btn-sm btn-light mx-auto" type="button">
-        Sign Up
-      </button></a
-    >
+    </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+              
+              <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="control.js"></script>
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" name="viewport" content="width = device-width, initial-scale = 1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico">
-    <title>Sign-Up</title>
-  </head>
-  <body>
-    <div class="sign-up">
-      <h1 class="heading text-center display-3">Sign Up now to stay lazy!!</h1>
-      <form class="form" action="/" method="post">
-        <input class="fname" type="text" name="fname" placeholder="First Name" title="First Name is required" required autofocus><br>
-        <input class="lname" type="text" name="lname" placeholder="Last Name" title="Last Name is required" required><br>
-        <input class="email" type="email" name="email" placeholder="Email" title="Email-id is required" required><br>
-        <input class="ph-no-code" type="text" name="" value="+91" readonly>
-        <input class="ph-no" type="tel" name="phNo" placeholder="Contact Number" title="Contact Number is required" size="10" required><br>
-        <button class="btn btn-lg btn-dark" type="submit" name="button"><a href="success.html">Sign Up</a></button>
-      </form>
-    </div>
-
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  </body>
-</html>
- -->
