@@ -1,38 +1,42 @@
-//set navbar active
+//navbar
 
 $(window).on('load', () => {
     const navElements = document.querySelector('.navbar-nav').children,
         liElements = Array.from(navElements);
     liElements.forEach(ele => {
         if (window.location.pathname === $(ele.children).attr('href'))
-            $(ele).addClass('active');
-    })
+            $(ele.children).addClass('nav-link-active');
+    });
 });
+
+$('.navbar-toggler').click(() => {
+    $('.nav-items-container').addClass('navbar-open-animate')
+    setTimeout(() => $('.nav-items-container').addClass('navbar-open').removeClass('navbar-open-animate'), 1000);
+});
+
+$(document).click(e => {
+    if (window.matchMedia('(max-width: 767px)').matches)
+        if (!($(e.target).hasClass('navbar-no-toggle')) && !($(e.target).hasClass('navbar-toggler')) && !($(e.target).hasClass('nav-items-container')))
+            if ($('.nav-items-container').hasClass('navbar-open')) {
+                $('.nav-items-container').addClass('navbar-close-animate').removeClass('navbar-open');
+                setTimeout(() => $('.nav-items-container').removeClass('navbar-close-animate'), 1000);
+            }
+});
+
+//end navbar
 
 //button click styling
 
-$('.button').hover(e => $(e.target).addClass('button-hover'),
-    e => $(e.target).removeClass('button-hover'));
-
 $('.button').on('click', e => {
-    $(e.target).removeClass('button-hover');
     $(e.target).addClass('button-click');
-    setTimeout(() => $(e.target).removeClass('button-click'), 150);
-    $(e.target).addClass('button-hover'); //trigger('mouseover');
 });
+
+$('.button').mouseout(e => $(e.target).removeClass('button-click'));
 
 //text field validator
 
-$('.number-text-field').on({
-    'keydown': e => {
-        if (isNaN(e.key) && e.which !== 8)
-            e.preventDefault();
-    },
-    'blur': e => numberTextFieldValidator($(e.target))
-});
-
 $('.text-field').on('blur', e => {
-    if (e.target.value.trim() === '' && (!$(e.target).hasClass('number-text-field')))
+    if (e.target.value.trim() === '')
         $(e.target).nextAll(':not(.text-field-placeholder)').css('visibility', 'visible');
 });
 
@@ -48,6 +52,14 @@ $('.text-field').on('keyup', e => {
         }, 500);
     } else
         $(e.target).nextUntil('.password-toggler', ':not(.text-field-placeholder)').css('visibility', 'hidden');
+});
+
+$('.number-text-field').on({
+    'keydown': e => {
+        if (isNaN(e.key) && e.which !== 8 && e.which !== 9)
+            e.preventDefault();
+    },
+    'blur': e => numberTextFieldValidator($(e.target))
 });
 
 $('button[type="submit"]').on('click', e => {
@@ -84,7 +96,7 @@ function numberTextFieldValidator(ele) {
     const value = ele.val().length,
         name = ele.attr('name');
     if (name === 'phNo') {
-        if (value < 10) {
+        if (value < 10 && value > 0) {
             ele.nextAll('.error-message').html('Enter valid 10 digit phone number').css('visibility', 'visible');
             $("html, body").animate({
                 scrollTop: ele.offset().top - 11 * $(window).height() / 100
@@ -92,10 +104,11 @@ function numberTextFieldValidator(ele) {
             return false;
         } else {
             ele.nextAll('.error-message').html('This field is required').css('visibility', 'hidden');
+            $(ele).keyup();
             return true;
         }
     } else if (name === 'pinCode') {
-        if (value < 6) {
+        if (value < 6 && value > 0) {
             $('.address-field-container .error-message').text('Enter valid 6 digit pin code').css('visibility', 'visible');
             $("html, body").animate({
                 scrollTop: ele.offset().top - 11 * $(window).height() / 100
@@ -103,9 +116,11 @@ function numberTextFieldValidator(ele) {
             return false;
         } else {
             $('.address-field-container .error-message').text('Address cannot be blank').css('visibility', 'hidden');
+            $(ele).keyup();
             return true;
         }
     }
+    return true;
 }
 
 //address validator
@@ -179,8 +194,14 @@ function updateQualification(checked, value) {
     }
 }
 
-$('.qualification-selector-item input').on('click', e => {
-    updateQualification(e.target.checked, $(e.target).parent().text());
+$('.qualification-selector-item').on('click', e => {
+    let checked;
+    if ($(e.target).hasClass('qualification-selector-item-selected'))
+        checked = false;
+    else
+        checked = true;
+    updateQualification(checked, $(e.target).text());
+    $(e.target).toggleClass('qualification-selector-item-selected');
 });
 
 function validateQualification() {
@@ -201,10 +222,10 @@ $('.password-toggler').on('click', e => {
     const ele = $(e.target).attr('data-for');
     if ($(ele).attr('type') === 'password') {
         $(ele).attr('type', 'text');
-        $(e.target).attr('src', 'eye-slash-fill.svg')
+        $(e.target).attr('src', './icons/icons/eye-slash-fill.svg')
     } else {
         $(ele).attr('type', 'password');
-        $(e.target).attr('src', 'eye-fill.svg')
+        $(e.target).attr('src', './icons/icons/eye-fill.svg')
     }
 });
 
@@ -289,324 +310,20 @@ $('#advocate-sign-up').submit(function (e) {
 });
 
 // end signUp.ejs
-// start accountPage.ejs
+//start dashboard
 
-var list, temp1;
-
-function accountPage() {
-    list = JSON.parse($(".contactList").attr("data-value"));
-}
-
-
-$(".clientName").keydown((event) => {
-    $(".contactList").empty();
-    setTimeout(() => {
-        temp1 = [];
-        var phNo = $(".clientName").val();
-        if (phNo === "")
-            temp1 = [];
-        else {
-            list.forEach((item, index) => {
-                if (item.name.search(new RegExp(phNo, "i")) !== -1) //in js u have indexof method instead of includes
-                    temp1.push(item);
-            });
-        }
-        for (let i = 0; i < temp1.length; ++i) {
-            $(".contactList").append('<input type="text" class="dBlock mAuto contactListItems" value="' + temp1[i].name + '" onclick=autoFill(' + i + ') readonly/>');
-        }
-    }, 10);
-});
-
-function autoFill(value) {
-    $(".contactList").empty();
-    $(".clientName").val(temp1[value].name).focus();
-    $("form input:last-of-type").val(temp1[value]._id);
-    $("form").submit();
-}
-
-// end accountPage.ejs
-
-// start clientSignUp.ejs
-
-// $('#client-sign-up').submit(function (e) {
-//     e.preventDefault();
-//     $.ajax({
-//         url: '/client/sign-up/validate',
-//         type: 'POST',
-//         data: {
-//             mail: $("#mail").val(),
-//             phNo: $("#ph-no").val(),
-//             advocateId: $('#client-sign-up').attr('data-id')
-//         },
-//         success: res => {
-//             if (res === 'validated')
-//                 $("#client-sign-up").unbind('submit').submit();
-//             else
-//                 alert(JSON.parse(res).value);
-//         },
-//         complete: () => console.log('done')
-//     });
-// });
-
-//end clientSignUp.ejs
-
-// start clientData.ejs
-
-
-function openCase(id) {
-    data = JSON.stringify({
-        advocateId: $("#advocate-id").html(),
-        clientId: parseInt($("#client-id").html()),
-        active: parseInt(id)
-    });
-    $.ajax({
-        url: '/client-data/case/open/' + data,
-        type: "POST",
-        success: res => window.location.pathname = res.redirect
-    });
-}
-
-function newCase() {
-    data = JSON.stringify({
-        advocateId: $("#advocate-id").html(),
-        clientId: parseInt($("#client-id").html())
-    });
-    $.ajax({
-        url: "/client-data/case/new/" + data,
-        type: "POST",
-        data: {
-            caseTitle: $('#new-case-title').val(),
-            caseDesc: $('#new-case-desc').val()
-        },
-        success: res => window.location.pathname = res.redirect
-    });
-}
-
-//record operations
-
-function recOperation(path, data, callback) {
-    paramData = JSON.stringify({
-        advocateId: $("#advocate-id").html(),
-        clientId: parseInt($("#client-id").html()),
-        caseId: parseInt($("#case-id").html())
-    });
-    $.ajax({
-        url: "/client-data/record/" + path + paramData,
-        type: "POST",
-        data,
-        success: res => callback()
-    });
-}
-
-function newRec() {
-    $("#amount-validity-err").remove();
-
-    const date = $("#new-rec-date").val(),
-        purpose = $("#new-rec-purpose").val(),
-        amount = parseInt($("#new-rec-amount").val()),
-        paid_by = $('#paid-by').attr('data-paid_by');
-
-    if (isNaN($("#new-rec-amount").val()) || $("#new-rec-amount").val().trim() === "") {
-        $("#new-rec-amount").after("<span id='amount-validity-err' class='mx-4 mt-2 dBlock' style='color: red;'>Enter valid amount !!</span>");
+$('#profile-icon-holder').click(() => {
+    if ($('.profile').hasClass('profile-open'))
         return;
-    }
-    const recDate = '<div class="col-3 titem">' + date + '</div>',
-        recPurpose = '<div class="col-6 titem">' + purpose + '</div>',
-        recAmount = '<div class="col-3 titem"><b>' + amount + '</b><img src="/images/trash.png" alt="Delete" class="delete"></div>';
-    new_record = ' <div class="row mAuto tbody">' + recDate + recPurpose + recAmount + '</div>',
-        data = {
-            date,
-            purpose,
-            amount,
-            paid_by
-        };
-    let balance;
-
-    recOperation('new/', data, () => {
-        if (paid_by == 0) {
-            balance = parseInt($("#recordBalance b").html()) + amount;
-            $(".advocateRec button").before(new_record);
-        } else {
-            balance = parseInt($("#recordBalance b").html()) - amount;
-            $(".clientRec button").before(new_record);
-        }
-        justClose();
-        $("#recordBalance b").html(balance);
-        if (!($(".advocateRec").find(".tbody") === null))
-            $("#noRecordShow1").css("display", "none");
-        if (!($(".clientRec").find(".tbody") === null))
-            $("#noRecordShow2").css("display", "none");
-    });
-}
-
-function alertDelete(id, of ) {
-    $(".deleteAlert").css("display", "block").attr('data-recordId', id).attr('data-recordOf', of );
-    $("body > *:not(.c)").css("filter", "blur(1px)");
-}
-
-$(".deleteAlert div button").on("click", (e) => {
-    const _id = $('.deleteAlert').attr('data-recordId'),
-        of = $('.deleteAlert').attr('data-recordOf');
-    if ($(e.target).html() === "Yes") {
-
-        recOperation('delete/', {
-            _id
-        }, () => {
-            let bal;
-            if ( of == 0)
-                bal = parseInt($("#recordBalance b").html()) - parseInt($(`#${_id} .rec-amount`).text());
-            else
-                bal = parseInt($("#recordBalance b").html()) + parseInt($(`#${_id} .rec-amount`).text());
-            $("#recordBalance b").html(bal);
-            $("#" + _id).remove();
-        });
-    }
-    $(".deleteAlert").css("display", "none");
-    $("body > *:not(.c)").css("filter", "");
-    if ($(".advocateRec").find(".tbody").length === 0)
-        $("#noRecordShow1").css("display", "block");
-    if ($(".clientRec").find(".tbody").length === 0)
-        $("#noRecordShow2").css("display", "block");
+    $(".profile").addClass('profile-display');
+    setTimeout(() => $(".profile").addClass('profile-open').removeClass("profile-display"), 800);
+    $('.dashboard').fadeOut(600);
 });
 
-$(".a").on("click", () => {
-    justClose();
-    $(".a").css("background-color", "#f1f3f4");
-    $(".b").css("background-color", "");
-    $(".clientRec").slideUp();
-    $(".advocateRec").slideDown();
-    $("html, body").animate({
-        scrollTop: $(".recDisplay").offset().top
-    }, 500);
-});
-
-$(".b").on("click", () => {
-    justClose();
-    $(".b").css("background-color", "#f1f3f4");
-    $(".a").css("background-color", "");
-    $(".advocateRec").slideUp();
-    $(".clientRec").slideDown();
-    $("html, body").animate({
-        scrollTop: $(".recDisplay").offset().top
-    }, 500);
-});
-
-function justClose() {
-    $(".newRec").slideUp();
-}
-
-function justOpen(heading, value) {
-    $(".newRec input[type='text'], .newRec textarea").val("");
-    $("#paid-by").html(heading);
-    $("#paid-by").attr('data-paid_by', value);
-    $(".newRec").slideDown();
-    $("html, body").animate({
-        scrollTop: $(document).height()
-    }, 500);
-}
-
-$(".advocateRec button").on("click", () => {
-    justOpen("My expense", 0);
-});
-
-$(".clientRec button").on("click", () => {
-    justOpen("Client Payment", 1);
-});
-
-$(".newRec img").on("click", () => {
-    justClose();
-});
-
-$(".advocateRec, .clientRec").on("mouseenter", ".tbody", (e) => {
-    if (!(window.matchMedia('(max-width: 768px)').matches))
-        $($(e.target).parent()).find(".delete").show();
-});
-
-$(".advocateRec, .clientRec").on("mouseleave", ".tbody", (e) => {
-    if (!(window.matchMedia('(max-width: 768px)').matches))
-        $($(e.target).parent()).find(".delete").hide();
-});
-
-//document operations
-
-function documentOperation(docName, docStatus, callback) {
-    data = JSON.stringify({
-        advocateId: $("#advocate-id").html(),
-        clientId: parseInt($("#client-id").html()),
-        caseId: parseInt($("#case-id").html())
-    });
-    $.ajax({
-        url: '/client-data/document/' + data,
-        type: "POST",
-        data: {
-            docName,
-            docStatus
-        },
-        success: res => {
-            console.log(res);
-            callback();
-        }
-    });
-}
-
-function addNewDoc() {
-    const id1 = "remDoc" + ($("#docList div").length + 1),
-        id2 = "div" + ($("#docList div").length + 1),
-        docName = $('#docList input'),
-        newDoc = '<div class="m-2"><p style="display: inline-block" id=' + id2 + ' class="my-2 mx-lg-3" data-status="0"><img src="/images/arrow.png" class="mr-lg-5 mr-2">' + docName.val() + '</p><img id=' + id1 + ' class="removeDoc" src="/images/minus.png" alt="Remove"></div>'
-    $("#docList input").before(newDoc);
-    docName.val("");
-}
-
-function newDoc() {
-    let docName = $("#docList input");
-    if (docName.val() === "")
-        docName.addClass("box-empty-red inline").after('<img src="/images/error.jpg" class="error-img mr-0" id="error" alt="Error">');
-    else
-        documentOperation(docName.val(), 2, addNewDoc);
-}
-
-$("#docList input").click((e) => {
-    $(e.target).removeClass("box-empty-red inline");
-    $("#error").remove();
-});
-
-$("#docList").on("click", "div p", (e) => {
-    let target, status;
-    if (e.target.nodeName === "IMG")
-        target = $(e.target).parent();
-    else
-        target = $(e.target);
-    status = target.attr("data-status");
-    documentOperation($(target).text(), (status === "true" ? 0 : 1), () => updateDocStatus(target, status));
-});
-
-function updateDocStatus(target, status) {
-    if (status === 'true') {
-        $(target).attr("data-status", "false");
-        $(target).find("img:last-child").remove();
-    } else {
-        $(target).attr("data-status", "true");
-        $(target).append('<img class="check ml-2 mb-2" src="/images/check.png">');
-    }
-}
-
-$("#docList").on("mouseenter", "div p", (e) => {
-    const temp = e.target.id.slice(-1);
-    if (!(window.matchMedia('(max-width: 768px)').matches))
-        $("#remDoc" + temp).css("display", "inline");
-});
-
-$("#docList").on("mouseleave", "div", (e) => {
-    if (e.target.nodeName === "DIV") {
-        const temp = $(e.target).children("p").attr("id").slice(-1);
-        if (!(window.matchMedia('(max-width: 768px)').matches))
-            $("#remDoc" + temp).css("display", "none");
-    }
-});
-
-$("#docList").on("click", ".removeDoc", (e) => {
-    const temp = $(e.target).attr("id").slice(-1),
-        docName = $("#div" + temp).text();
-    documentOperation(docName, -1, () => $("#div" + temp).parent().remove());
+$('#profile-back-button-holder').click(() => {
+    $(".profile").addClass('profile-hide');
+    setTimeout(() => {
+        $(".profile").removeClass('profile-open profile-hide');
+        $('.dashboard').fadeIn();
+    }, 700);
 });
