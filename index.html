@@ -1,162 +1,282 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Advocate</title>
-  <meta name="keywords" content="Advocate, Client, Records, Data" />
-  <meta
-    name="description"
-    content="A website for Advocates, helps maintaining client records without any hassle"
-  />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-  />
-  <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Baloo+Da+2:600|Baloo+Thambi+2|Sen|Special+Elite&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="apple-touch-icon"
-    sizes="180x180"
-    href="/images/apple-touch-icon.png"
-  />
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="/images/favicon-32x32.png"
-  />
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="16x16"
-    href="/images/favicon-16x16.png"
-  />
-  <link rel="manifest" href="/images/site.webmanifest" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md my-navbar">
-    <div class="container">
-      <button class="p-2 navbar-toggler navbar-toggler-left" type="button">
-        <img
-          class="navbar-no-toggle icon"
-          src="list.svg"
-          alt="Menu"
-        />
-      </button>
-      <span class="ml-auto ml-sm-0 navbar-logo-holder"
-        ><img class="navbar-logo" src="advocate.png" alt="Advocate"
-      /></span>
-      <a href="/account/" class="navbar-brand py-2 pl-2 mr-auto"
-        >CLIENT MANAGER</a
-      >
-      <div class="mx-3 my-2 mx-sm-0 my-sm-0 nav-items-container">
-        <div class="d-md-none mx-3 mt-2 mb-4">
-          <span class="navbar-no-toggle navbar-logo-holder"
-            ><img
-              class="navbar-no-toggle navbar-logo"
-              src="advocate.png"
-              alt="Advocate"
-          /></span>
-          <span class="p-2 round-icon-holder" style="float: right;"
-            ><img class="icon" src="arrow-left.svg" alt="Back"
-          /></span>
-        </div>
-        <ul class="navbar-nav ml-auto mr-2">
-          <li class="my-3 my-sm-0 pl-2 pr-1 nav-item">
-            <a href="/account/" class="m-1 nav-link nav-link-active">Home</a>
-          </li>
-          <li class="my-3 my-sm-0 px-2 nav-item">
-            <a href="/templates/" class="m-1 nav-link">Templates</a>
-          </li>
-          <li class="my-3 my-sm-0 pl-1 pr-2 nav-item">
-            <a href="/expenses/" class="m-1 nav-link">Expenses</a>
-          </li>
-        </ul>
-      </div>
-      <span id="profile-icon-holder" class="p-2 p-sm-3 round-icon-holder"
-        ><img
-          class="icon profile-icon"
-          src="person-lines-fill.svg"
-          alt="Profile"
-      /></span>
+    <title>JSS WEBAPP</title>
+  </head>
+  <body>
+    <div class="row Nav py-3 py-sm-4 m-0">
+      <i class="fas fa-hospital-symbol fa-3x mx-2 Nav-brand"></i>
+      <h3 class="Nav-brand m-2">JSS WEBAPP</h3>
+      <i id="n1" class="fas fa-file-medical-alt fa-lg Nav-icons"></i>
+      <i id="n2" class="fas fa-user-md fa-2x Nav-icons"></i>
+      <i id="n3" class="fas fa-syringe fa-lg Nav-icons"></i>
+      <i
+        id="n4"
+        class="fas fa-stethoscope fa-2x Nav-icons d-none d-sm-block"
+      ></i>
+      <i id="n5" class="fas fa-briefcase-medical fa-lg Nav-icons"></i>
+      <i
+        id="n6"
+        class="fas fa-hand-holding-medical fa-2x Nav-icons d-none d-sm-block"
+      ></i>
+      <i id="n7" class="fas fa-prescription fa-lg Nav-icons"></i>
+      <i id="n8" class="fas fa-capsules fa-2x Nav-icons d-none d-sm-block"></i>
+      <i id="n9" class="fas fa-ambulance fa-lg Nav-icons d-none d-sm-block"></i>
     </div>
-  </nav>
-  
-  <div class="container py-2 dashboard-container">
-
-  <div class="px-3 py-2 dashboard">
-    <div>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur aut adipisci eos corporis non architecto aliquid omnis ad hic aspernatur nesciunt quasi est fugit cupiditate, nisi animi beatae sed. Eius?</p>
+    <div id="motive" class="container my-4 my-sm-5">
+      <p id="motive-text" class="py-1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+        expedita, repellat neque autem mollitia hic! Id, tempore excepturi
+        dolore sapiente, hic eos ab fugiat eum assumenda alias, debitis eveniet.
+        Non voluptatum quam eum debitis quaerat, doloribus, ipsa voluptate,
+        repudiandae dolorem a corporis ratione at quas neque nostrum fugit
+        provident voluptatibus.
+      </p>
     </div>
-  </div>
 
-  <div class="m-4 px-2 py-2 profile">
-    <div class="px-2 py-3 profile-container">
-
-      <div class="row mb-3">
-        <span id="profile-back-button-holder" class="mr-auto ml-sm-5 p-2 p-sm-3 round-icon-holder"
-            ><img
-            class="icon profile-back-button"
-              src="arrow-left.svg"
-              alt="Profile"
-          /></span>
-        <a href="/logout" class="mr-sm-5"><button class="p-2 button">Logout</button></a>
-      </div>
-
-      <div class="row justify-content-center profile-detail-container">
-
-        <div class="col-12 col-sm-7 px-3 py-4 mx-2 my-3 profile-detail">
-          <div class="row">
-            <h6 class="col-5">Name : </h4>
-            <h5 class="col-6">Vishal Bhat</h3>
-          </div>
-          <div class="row">
-            <h6 class="col-5">Qualification : </h4>
-            <h5 class="col-6">B.A, LL.B.</h3>
-          </div>
-          <div class="row">
-            <h6 class="col-5">No. of registered clients : </h4>
-            <h5 class="col-6">5</h3>
-          </div>
-        </div>
-      
-        <div class="col-12 col-sm-7 px-3 py-4 mx-2 my-3 profile-detail">
-          <div class="row">
-            <h6 class="col-12">Address : </h4>
-            <h5 class="offset-1 col-10 mt-2">1032, 2nd floor,10th cross,, 2nd stage,Bogadi South, 570026, Mysuru, Mysuru, Karnataka</h3>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-7 px-3 py-4 mx-2 my-3 profile-detail">
-          <div class="row">
-            <h6 class="col-3">e-Mail : </h4>
-            <h5 class="col-7">vishalbhat97@gmail.com</h3>
-          </div>
-          <div class="row">
-            <h6 class="col-3">ph-No : </h4>
-            <h5 class="col-7">8197785987</h3>
-          </div>
-        </div>
-
-      </div>
+    <div class="open">
+      <div class="layer"></div>
+      <div class="layer"></div>
     </div>
-  </div>
-</div>
-              
-              <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="control.js"></script>
-</body>
+    <header>
+      <section class="main">
+        <div class="header">
+          <h2 class="logo">Your Logo</h2>
+          <i class="fa fa-bars x2" onclick="menuToggle()"></i>
+          <ul id="navigation">
+            <li>
+              <a href="#" class="active">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+            <li>
+              <a href="#">Reviews</a>
+            </li>
+            <li>
+              <a href="#contact-us">Contact</a>
+            </li>
+
+            <li>
+              <a href="#">Log-in/Join</a>
+            </li>
+            <i class="fa fa-times x2" onclick="menuToggle()"></i>
+          </ul>
+        </div>
+
+        <div class="bannerText">
+          <h3>Welcome to</h3>
+          <br />
+          <h2>VIRTUAL CLINIC</h2>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <a href="#" class="btn-secondary">Read More</a>
+        </div>
+        <div>
+          <img src="doctor.jpg" class="doctor" />
+        </div>
+
+        <div class="element1"></div>
+        <div class="element2"></div>
+      </section>
+    </header>
+    <!-- 
+    reviews section -->
+    <section class="teams" id="teams">
+      <div class="max-width">
+        <h2 class="title">Reviews by Experts</h2>
+        <div class="carousel owl-carousel">
+          <div class="card">
+            <div class="box">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Poster-sized_portrait_of_Barack_Obama.jpg/1024px-Poster-sized_portrait_of_Barack_Obama.jpg"
+                alt=""
+              />
+              <div class="text">Someone name</div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="box">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0J0jk6YYbo1WfxWvWjzUPrMDf7w8mA_JjNA&usqp=CAU"
+                alt=""
+              />
+              <div class="text">Someone name</div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="box">
+              <img src="sample.jpg" alt="" />
+              <div class="text">Someone name</div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="box">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0J0jk6YYbo1WfxWvWjzUPrMDf7w8mA_JjNA&usqp=CAU"
+                alt=""
+              />
+              <div class="text">Someone name</div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="box">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjftiorbkachtcJRm84svQ5FJZQ1wD34mV5g&usqp=CAU"
+                alt=""
+              />
+              <div class="text">Someone name</div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact us section -->
+    <section class="contact-us" id="contact-us">
+      <div class="container">
+        <div class="contactinfo">
+          <div>
+            <h2>Contact Info</h2>
+            <ul class="info">
+              <li>
+                <span><img src="location.png" alt="" /></span>
+                <span>Bogadi main road Mysuru-570009</span>
+              </li>
+              <li>
+                <span><img src="email.png" alt="" /></span>
+                <span>abc@gmail.com</span>
+              </li>
+              <li>
+                <span><img src="call.png" alt="" /></span>
+                <span>910-2343-323</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contactForm">
+          <h2>Send a Message</h2>
+          <div class="formBox">
+            <div class="inputBox w50">
+              <input type="text" required />
+              <span>First Name</span>
+            </div>
+            <div class="inputBox w50">
+              <input type="text" required />
+              <span>Last Name</span>
+            </div>
+            <div class="inputBox w50">
+              <input type="text" required />
+              <span>Email address</span>
+            </div>
+            <div class="inputBox w50">
+              <input type="text" required />
+              <span>Mobile Number</span>
+            </div>
+            <div class="inputBox w100">
+              <textarea name="" required></textarea>
+              <span>Write your message here...</span>
+            </div>
+            <div class="inputBox w100">
+              <input type="submit" value="Send" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" data-aos="fade-right">
+            <a href="#" class="logo"><span>V</span>irtual<span>C</span>linic</a>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur
+              nemo porro quasi minima consequuntur dolorum, quas amet in autem
+              id?
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center" data-aos="fade-up">
+            <h3>links</h3>
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">facility</a>
+            <a href="#">review</a>
+            <a href="#">contact</a>
+            <a href="#">post</a>
+          </div>
+
+          <div class="col-md-4 text-center" data-aos="fade-left">
+            <h3>share</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">github</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <footer class="copyright">
+      <div>Copyright © 2020 All rights reserved</div>
+    </footer>
+
+    <script src="about.js"></script>
+
+    <script type="text/javascript">
+      function menuToggle() {
+        var element = document.getElementById("navigation");
+        element.classList.toggle("show");
+      }
+    </script>
+  </body>
 </html>
