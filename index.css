@@ -1,15 +1,8 @@
 * {
-    box-sizing: border-box;
+    box-sizing: border-box!important;
+    outline: none;
+    font-family: 'Varela Round', sans-serif;
 }
-
-/* .first-section {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    max-height: 100vh;
-    background: #d8e3e7 url('/images/blue-snow.png');
-    background-blend-mode: overlay;
-} */
 
 .Nav {
     justify-content: center;
@@ -17,6 +10,7 @@
     top: 0;
     overflow: hidden;
     background-color: white;
+    z-index: 25;
 }
 
 .Nav-brand {
@@ -257,6 +251,220 @@
     animation: anim9 18s linear infinite both, anticlockwise 8s infinite both;
 }
 
+.login-signup-button, .enter-buttons{
+    border: none;
+    outline: none !important;
+    border-radius: 5px;
+}
+.login-signup-button{
+    background-color: white;
+    box-shadow: 0px 0px 7px 0 grey;
+}
+
+.login-signup-button i{
+    color: #0061a8;
+}
+
+.login-signup-button:hover, .login-signup-button:hover i, .enter-buttons{
+    background-color: #0061a8;
+    color: white
+}
+
+.enter-buttons:hover{
+    background-color: #1a508b;
+}
+
+.noscroll{
+    overflow: hidden;
+}
+
+.myModalHolder{
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1500;
+    backdrop-filter: blur(5px);
+}
+
+.myModal{
+    opacity: 1;
+    transform: translateY(-100vh);
+    background-color: white;
+    border: none;
+    border-radius: 17px;
+    margin-top: 25vh;
+    height: min-content;
+    width: 100%;
+}
+
+.Modal-open{
+    transition: transform 600ms linear -200ms;
+}
+.Modal-close{
+    transition: transform 600ms linear;
+}
+
+.Close{
+    color: #0061a8;
+    cursor: pointer;
+    float: right;
+    margin-right: -10px;
+    margin-top: -10px;
+    opacity: 0.5;
+    padding: 10px;
+    border-radius: 100%;
+    box-shadow: 0.5px 0.5px 3px 0 grey;
+}
+
+.Close:hover{
+    opacity: 1;
+}
+
+#login-box{
+    box-sizing: border-box!important;
+    max-width: 350px; 
+}
+
+#signup-box{
+    max-width: 400px;
+}
+
+.placeholder{
+    float: left;
+    font-size: 0.75rem;
+    color: #0061a8;
+    font-weight: bold;
+}
+
+input, textarea{
+    box-sizing: border-box!important;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px 0 grey;
+    clear: both;
+}
+
+input:active, input:focus, textarea:active, textarea:focus{
+    box-shadow: 0 0 6px 0 grey;
+}
+
+textarea{
+    resize: none;
+}
+
+#motive-text{
+    font-size: 1.2rem;
+    line-height: 1.7em;
+    text-align: center;
+}
+
+.Cards{
+    text-align: center;
+    box-sizing: border-box!important;
+}
+
+.header-holder{
+    text-align: center;
+}
+
+.header{
+    display: inline-block;
+    vertical-align: middle;
+    color: #0061a8;
+}
+
+.header-icon{
+    background-color: #0061a8;
+    color: white;
+    border-radius: 8px;
+    padding: 0.75rem 0.95rem;
+    box-shadow: 0 0 5px grey;
+}
+
+.myCard{
+    box-sizing: border-box!important;
+    white-space: normal;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    min-height: fit-content!important;
+    max-height: fit-content!important;
+    width: fit-content;
+    transition: left 0.6s linear;
+}
+
+.card-active{
+    left: 0;
+    transition: left 0.6s linear 0.05s;
+}
+
+.carousel-nav{
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.carousel-nav:hover{
+    opacity: 1;
+}
+
+#carousel-nav-left{
+    left: 14px;
+}
+
+#carousel-nav-right{
+    right: 14px;
+}
+
+.slide-left{
+    left: -100%;
+}
+
+.slide-right{
+    left: 100%;
+}
+
+img{
+    margin-top: -5px;
+    border-radius: 50%;
+}
+
+.content-box{
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 0 grey;
+}
+
+#footer{
+    background-color: #1a508b;
+    margin-top: 9rem;
+    justify-content: center;
+    transform: translateY(rem);
+}
+
+#contact-us{
+    position: relative;
+    top: -7rem;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 0 grey;
+    background-color: white;
+}
+
+#copyright{
+    position: relative;
+    bottom: 2rem;
+    color: #bbbbbb
+}
+
 @media only screen and (max-width: 768px){
     #n1, #n5, #n7{
         animation-duration: 10s;
@@ -264,10 +472,19 @@
     #n2, #n3{
         animation-duration: 7s;
     }
-}
-
-#motive-text{
-    font-size: 1.2rem;
-    line-height: 1.7em;
-    text-align: center;
+    .Modal-open{
+        transition-duration: 500ms;
+        transition-delay: -100ms;
+    }
+    .Modal-close{
+        transition-duration: 500ms;
+    }
+    #location{
+        text-align: left;
+        position: relative;
+    top: -5rem;
+    }
+    #social-icons{
+        text-align: center;
+    }
 }
