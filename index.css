@@ -304,25 +304,34 @@
 }
 
 .Modal-open{
-    transition: transform 600ms linear -200ms;
+    transition: transform 600ms linear -200ms, height 250ms linear 150ms;
 }
 .Modal-close{
     transition: transform 600ms linear;
 }
 
-.Close{
+.Close, .back-arrow{
     color: #0061a8;
     cursor: pointer;
-    float: right;
-    margin-right: -10px;
-    margin-top: -10px;
+    margin-top: -0.7rem;
     opacity: 0.5;
-    padding: 10px;
-    border-radius: 100%;
     box-shadow: 0.5px 0.5px 3px 0 grey;
+    padding: 10px;
+}
+.Close{
+    float: right;
+    border-radius: 100%;  
+    margin-right: -0.7rem;
 }
 
-.Close:hover{
+.back-arrow{
+    float: left;
+    border-radius: 10px;
+    width: 4rem;
+    margin-left: -0.7rem;
+}
+
+.Close:hover, .back-arrow:hover{
     opacity: 1;
 }
 
@@ -333,6 +342,33 @@
 
 #signup-box{
     max-width: 400px;
+    margin-top: 15vh;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.signup-child-box{
+    box-sizing: border-box!important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: inherit;
+    transition: left 0.5s linear, opacity 0.3s linear;
+    /* min-height: fit-content!important; */
+    /* max-height: fit-content!important; */
+    width: 100%;
+    opacity: 0;
+}
+
+#signup3{
+    max-height: 70vh;
+    overflow-y: scroll!important;
+}
+
+.signup-active{
+    opacity: 1;
+    top: auto;
 }
 
 .placeholder{
@@ -342,7 +378,8 @@
     font-weight: bold;
 }
 
-input, textarea{
+input, textarea, select{
+    background-color: white;
     box-sizing: border-box!important;
     border-radius: 5px;
     border: none;
@@ -357,6 +394,40 @@ input:active, input:focus, textarea:active, textarea:focus{
 
 textarea{
     resize: none;
+}
+
+label{
+    text-align: left;
+    display: inline-block;
+    overflow-wrap: break-word;
+    white-space: normal!important;
+    word-wrap: break-all!important;
+    vertical-align: middle!important;
+}
+
+.myRadio{
+    position: relative;
+    box-shadow: none;
+}
+
+.myRadio:active, .myRadio:focus{
+    box-shadow: none;
+}
+
+.myRadio:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0 0 3px 0 grey;
+    content: '';
+}
+
+.myRadio:checked:after{
+    background-color: #0061a8;
 }
 
 #motive-text{
@@ -425,11 +496,11 @@ textarea{
 }
 
 .slide-left{
-    left: -100%;
+    left: -100%!important;
 }
 
 .slide-right{
-    left: 100%;
+    left: 100%!important;
 }
 
 img{
