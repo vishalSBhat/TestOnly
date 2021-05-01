@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    console.log();
     $('#card-holder').height($('.card-active').outerHeight());
-})
+});
 
 $('.login-signup-button').click(function (e) {
     const parent = $(e.target).attr('data-parent');
     console.log(parent)
     $('body').addClass('noscroll');
     $('#' + parent + '-holder').removeClass('d-none');
+    $('#signup-box').height($('.signup-active').outerHeight());
     $('#' + parent + '-holder').animate({
         opacity: 1
     }, 400);
@@ -51,4 +51,27 @@ $('.carousel-nav').click(function (e) {
         slideLeft(active);
     else
         slideRight(active);
-})
+});
+
+$('.signup-next').click(function () {
+    const active = $('.signup-active').attr('id');
+    const next = 'signup' + (parseInt(active.slice(6)) + 1);
+    $('#' + active).removeClass('signup-active').addClass('slide-left');
+    setTimeout(function () {
+        $('#' + next).removeClass('slide-right').addClass('signup-active');
+        $('#signup-box').height($('#' + next).outerHeight());
+        $('.back-arrow').removeClass('d-none');
+    }, 200);
+});
+
+$('.back-arrow').click(function () {
+    const active = $('.signup-active').attr('id');
+    const prev = 'signup' + (parseInt(active.slice(6)) - 1);
+    if (prev == 'signup1')
+        $('.back-arrow').addClass('d-none');
+    $('#' + active).removeClass('signup-active').addClass('slide-right');
+    setTimeout(function () {
+        $('#' + prev).removeClass('slide-left').addClass('signup-active');
+        $('#signup-box').height($('#' + prev).outerHeight());
+    }, 200);
+});
