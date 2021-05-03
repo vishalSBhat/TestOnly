@@ -14,6 +14,17 @@ $('.login-signup-button').click(function (e) {
     $('#' + parent).removeClass('Modal-close').addClass('Modal-open').css('transform', 'translateY(0)');
 });
 
+$(".password-toggle").click(function (e) {
+    const ele = $(e.target).attr("data-toggle");
+    if ($(ele).attr('type') == 'password') {
+        $(e.target).removeClass('fa-eye').addClass('fa-eye-slash');
+        $(ele).attr('type', 'text');
+    } else {
+        $(e.target).removeClass('fa-eye-slash').addClass('fa-eye');
+        $(ele).attr('type', 'password');
+    }
+});
+
 $('.Close').click(function (e) {
     const parent = $(e.target).attr('data-parent');
     $('body').removeClass('noscroll');
@@ -53,8 +64,46 @@ $('.carousel-nav').click(function (e) {
         slideRight(active);
 });
 
+function signupFormCheck() {
+    let activeChildren = $('.signup-active :input');
+    for (let i = 0; i < activeChildren.length; ++i) {
+        if ($(activeChildren[i]).prop('tagName') == 'BUTTON') {
+            continue;
+        }
+        if ($(activeChildren[i]).val().trim() == '') {
+            return false;
+        } else if ($(activeChildren[i]).attr('type') == 'radio')
+            if ($('input[name = ' + $(activeChildren[i]).attr("name") + ']:checked').length == 0) {
+                return false;
+            }
+    }
+    return true;
+}
+
+function checkPassword() {
+    const password = $('#signup-form-password').val(),
+        confirmPassword = $('#signup-form-confirmPassword').val();
+    if (password != confirmPassword)
+        return false;
+    return true;
+}
+
 $('.signup-next').click(function () {
     const active = $('.signup-active').attr('id');
+
+    $('#signup-box-holder').find('#password-alert').fadeOut();
+
+    if (!signupFormCheck())
+        return;
+    if (active == 'signup1')
+        if (!checkPassword()) {
+            $('#signup-box-holder').prepend(`
+                    <div id="password-alert" style="position: relative; width: 100%;"><div class="alert alert-danger mx-auto">
+                    <strong class="col-10">Passwords do not match. </strong>
+                    </div></div>`);
+            return;
+        }
+
     const next = 'signup' + (parseInt(active.slice(6)) + 1);
     $('#' + active).removeClass('signup-active').addClass('slide-left');
     setTimeout(function () {
@@ -74,4 +123,86 @@ $('.back-arrow').click(function () {
         $('#' + prev).removeClass('slide-left').addClass('signup-active');
         $('#signup-box').height($('#' + prev).outerHeight());
     }, 200);
+});
+
+$('button[form = "login-form"]').click(function (e) {
+    $('#login-form').submit(function (e) {
+        e.preventDefault();
+    });
+
+    const elements = $('input[form="login-form"]'),
+        data = {};
+    for (let i = 0; i < elements.length; ++i) {
+        if ($(elements[i]).val().trim() == '') {
+            return;
+        }
+        data[$(elements[i]).attr('name')] = $(elements[i]).val();
+    }
+
+            $('#login-box').find('.loader').removeClass('d-none');
+    
+    setTimeout(function () {
+                $('#login-box').find('.loader').addClass('d-none');
+
+                        $('#login-box-holder').prepend(`
+                        <div style="position: relative;height: 1px; width: 100%;"><div class="alert alert-primary alert-dismissible mx-auto">
+                        <button type="button" class="close px-0 col-2" data-dismiss="alert">&times;</button>
+                        <strong class="col-10">ph-No already in use.</strong>
+                        </div></div>`)
+
+            }, 500);
+});
+
+function signupDataSerialize(form) {
+    const elements = $(form).serializeArray();
+    let data = {};
+
+    for (let i = 0; i < elements.length; ++i) {
+        data[elements[i].name] = elements[i].value;
+    }
+
+    return data;
+}
+
+$('button[form = "signup3-form"]').on('click', function (e) {
+    $('#signup3-form').submit(function (e) {
+        e.preventDefault();
+    });
+
+    if (!signupFormCheck())
+        return;
+
+
+    data = {}
+
+    $.extend(data, signupDataSerialize('#signup1-form'));
+    $.extend(data, signupDataSerialize('#signup2-form'));
+    $.extend(data, signupDataSerialize('#signup3-form'));
+
+
+            $('#signup-box').find('.loader').removeClass('d-none');
+      
+            setTimeout(function () {
+                $('#signup-box').find('.loader').addClass('d-none');
+                
+                    $('.back-arrow').click();
+                    setTimeout(function () {
+                        $('.back-arrow').click();
+                    }, 500);
+                    setTimeout(function () {
+                        $('#signup-box-holder').prepend(`
+                        <div style="position: relative;height: 1px; width: 100%;"><div class="alert alert-primary alert-dismissible mx-auto">
+                        <button type="button" class="close px-0 col-2" data-dismiss="alert">&times;</button>
+                        <strong class="col-10">ph-No already in use.</strong>
+                        </div></div>`)
+                    }, 600);
+                }
+            }, 500);
+
+
+
+
+        }
+
+    });
 });
