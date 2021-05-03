@@ -196,13 +196,6 @@ $('button[form = "signup3-form"]').on('click', function (e) {
                         <strong class="col-10">ph-No already in use.</strong>
                         </div></div>`)
                     }, 600);
-                }
             }, 500);
 
-
-
-
-        }
-
-    });
 });
