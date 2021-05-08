@@ -37,6 +37,11 @@ input{
     box-shadow: 0 0 5px 0 grey;
 }
 
+.disable-input{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 #register-button-container{
     position: fixed;
     bottom: 1.5rem;
