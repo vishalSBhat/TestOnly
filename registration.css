@@ -1,0 +1,101 @@
+.header{
+    font-size: min(1.3rem, 5vw);
+    color: #0061a8;
+    line-height: 2rem;
+}
+
+.requiredField{
+    color: red;
+}
+
+#questionContainer{
+    position: relative;
+}
+
+.question-number{
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 grey;
+    color: white;
+    background-color: #1a508b;
+    font-size: min(1.1rem, 4vw);
+}
+
+.sub-question-number{
+    font-size: min(0.9rem, 3vw);
+    padding: 0.25rem 0.45rem;
+}
+
+input{
+    padding: 5px;
+    background-color: white;
+    box-sizing: border-box!important;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px 0 grey;
+}
+
+#register-button-container{
+    position: fixed;
+    bottom: 1.5rem;
+    text-align: right;
+}
+
+#register-button-container button{
+    border: none;
+    outline: none !important;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 7px 0 grey;
+    color: #2b2e4a;
+}
+
+#register-button-container button i{
+    color: #0061a8;
+}
+
+#register-button-container button:hover, #register-button-container button:hover i{
+    background-color: #0061a8;
+    color: white
+}
+
+.question, .subQuestion{
+    color: #525252;
+}
+.question{
+    font-size: min(1.3rem, 4.5vw);
+}
+
+.subQuestion{
+    font-size: min(1.1rem, 4vw);
+}
+
+.myRadio{
+    position: relative;
+    box-shadow: none;
+}
+
+.myRadio:active, .myRadio:focus{
+    box-shadow: none;
+}
+
+.myRadio:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0 0 3px 0 grey;
+    content: '';
+}
+
+.myRadio:checked:after{
+    background-color: #0061a8;
+}
+.login-signup-button:hover, .login-signup-button:hover i, .enter-buttons{
+
+}
