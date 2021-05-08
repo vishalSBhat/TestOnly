@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log('hello');
     const q = $('.disable-sub-question');
     if(q.length == 0)
     return;
@@ -8,6 +9,7 @@ $(document).ready(function() {
 });
 
 $('input').click(function(e){
+    console.log('input');
     const q = $('.disable-sub-question');
     if(q.length == 0)
     return;
