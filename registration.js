@@ -22,6 +22,6 @@ $('input').click(function(e){
     $("div[data-main-question='"+id+"']").removeClass('disable-input');
     else{
     $("div[data-main-question='"+id+"']").addClass('disable-input');
-    $("div[data-main-question='"+id+"']").val('')}
+    $("div[data-main-question='"+id+"'] input").val('')}
     
 });
