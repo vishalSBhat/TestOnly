@@ -1,0 +1,307 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="registration.css" />
+
+    <title>JSS WEBAPP</title>
+  </head>
+  <body>
+    <div class="row Nav py-3 py-sm-4 m-0">
+  <i class="fas fa-hospital-symbol fa-3x mx-2 Nav-brand"></i>
+  <h3 class="Nav-brand m-2">JSS WEBAPP</h3>
+  <i id="n1" class="fas fa-file-medical-alt fa-lg Nav-icons"></i>
+  <i id="n2" class="fas fa-user-nurse fa-2x Nav-icons"></i>
+  <i id="n3" class="fas fa-syringe fa-lg Nav-icons"></i>
+  <i id="n4" class="fas fa-stethoscope fa-2x Nav-icons d-none d-sm-block"></i>
+  <i id="n5" class="fas fa-briefcase-medical fa-lg Nav-icons"></i>
+  <i
+    id="n6"
+    class="fas fa-hand-holding-medical fa-2x Nav-icons d-none d-sm-block"
+  ></i>
+  <i id="n7" class="fas fa-prescription fa-lg Nav-icons"></i>
+  <i id="n8" class="fas fa-capsules fa-2x Nav-icons d-none d-sm-block"></i>
+  <i id="n9" class="fas fa-ambulance fa-lg Nav-icons d-none d-sm-block"></i>
+</div>
+ 
+    
+    <div class="container p-4">
+      <h3 class="ml-1 mr-1 mr-sm-5 mt-4 pl-0 pr-0 pr-sm-5 header">Please answer the below questionnaires carefully. Your risk factor is calculated based on your answers.</h3>
+      <h6 class="ml-3 mt-3 mb-4 requiredField">* required</h6>
+      <div class="m-1 pb-5" id="questionContainer">
+        <form action="/details" method="post">
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">1.</span> Do you exercise? <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092d193c04e7e930c9c90d0 type="radio" value=6092d193c04e7e930c9c90d0 name=6092cff1d2ba5490d426533f required>
+                <label for=6092d193c04e7e930c9c90d0>Yes</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092d193c04e7e930c9c90d1 type="radio" value=6092d193c04e7e930c9c90d1 name=6092cff1d2ba5490d426533f required>
+                <label for=6092d193c04e7e930c9c90d1>No</label><br>
+              
+            
+             
+              <div class="mt-3 ml-4 pl-2">
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">a.</span> How many days per week?</h6>
+                   
+                    <input class="ml-3" type="text" name=6092d062a412b391507ea88b required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">b.</span> How long per day? (in minutes)</h6>
+                   
+                    <input class="ml-3" type="text" name=6092d086917b62919afee256 required>
+                  
+                
+              </div>
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">2.</span> How many years have you been suffering from diabetes? <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c191346f7d7ae0e634b3 type="radio" value=6092c191346f7d7ae0e634b3 name=60929d74485cfc5996998ac3 required>
+                <label for=6092c191346f7d7ae0e634b3>&lt; 5 years</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c191346f7d7ae0e634b4 type="radio" value=6092c191346f7d7ae0e634b4 name=60929d74485cfc5996998ac3 required>
+                <label for=6092c191346f7d7ae0e634b4>5 - 10 years</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c191346f7d7ae0e634b5 type="radio" value=6092c191346f7d7ae0e634b5 name=60929d74485cfc5996998ac3 required>
+                <label for=6092c191346f7d7ae0e634b5>&gt; 10 years</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">3.</span> What medication do you use for diabetes: <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c1f6ac10bc7b5d12b542 type="radio" value=6092c1f6ac10bc7b5d12b542 name=60929db35a6cd05a2cee3fab required>
+                <label for=6092c1f6ac10bc7b5d12b542>Insulin</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c1f6ac10bc7b5d12b543 type="radio" value=6092c1f6ac10bc7b5d12b543 name=60929db35a6cd05a2cee3fab required>
+                <label for=6092c1f6ac10bc7b5d12b543>OHA</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c1f6ac10bc7b5d12b544 type="radio" value=6092c1f6ac10bc7b5d12b544 name=60929db35a6cd05a2cee3fab required>
+                <label for=6092c1f6ac10bc7b5d12b544>Insulin + OHA</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c1f6ac10bc7b5d12b545 type="radio" value=6092c1f6ac10bc7b5d12b545 name=60929db35a6cd05a2cee3fab required>
+                <label for=6092c1f6ac10bc7b5d12b545>Ayurvedic Medication</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">4.</span> Are you taking medications regularly? <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c22f09bb0b7bac3ca565 type="radio" value=6092c22f09bb0b7bac3ca565 name=60929de53f25415a71c373af required>
+                <label for=6092c22f09bb0b7bac3ca565>Yes</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c22f09bb0b7bac3ca566 type="radio" value=6092c22f09bb0b7bac3ca566 name=60929de53f25415a71c373af required>
+                <label for=6092c22f09bb0b7bac3ca566>No</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">5.</span> Do you follow regular diabetic diet? <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c26107d4737c139302fa type="radio" value=6092c26107d4737c139302fa name=60929e009d35635ac5bc93f7 required>
+                <label for=6092c26107d4737c139302fa>Yes</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c26107d4737c139302fb type="radio" value=6092c26107d4737c139302fb name=60929e009d35635ac5bc93f7 required>
+                <label for=6092c26107d4737c139302fb>No</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">6.</span> How frequently do you go for follow ups [including sugar checks]? <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c2972046097c604722ec type="radio" value=6092c2972046097c604722ec name=60929e1781cae15af6227c98 required>
+                <label for=6092c2972046097c604722ec>&lt;= 3 months</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c2972046097c604722ed type="radio" value=6092c2972046097c604722ed name=60929e1781cae15af6227c98 required>
+                <label for=6092c2972046097c604722ed>&gt; 3 months</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">7.</span> Family history of diabetes? <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c2ccb474b67cd18fc2cd type="radio" value=6092c2ccb474b67cd18fc2cd name=60929e30314f355b3bf94bf3 required>
+                <label for=6092c2ccb474b67cd18fc2cd>Yes</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c2ccb474b67cd18fc2ce type="radio" value=6092c2ccb474b67cd18fc2ce name=60929e30314f355b3bf94bf3 required>
+                <label for=6092c2ccb474b67cd18fc2ce>No</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">8.</span> For females, <span class="requiredField">*</span></h5>
+            
+             
+              <div class="mt-3 ml-4 pl-2">
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">a.</span> Parity</h6>
+                   
+                    <input class="ml-3" type="text" name=6092a88cf0a75864e9a474f0 required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">b.</span> Previous history of gestational diabetes mellitus?</h6>
+                   
+                    
+                      <input class="ml-3 mr-1 myRadio" id=60939ede95fe4b33c0e20f49 type="radio" value=60939ede95fe4b33c0e20f49 name = 6092b6adc184a26ce42c06d5 required>
+                      <label for=60939ede95fe4b33c0e20f49>Yes</label><br>
+                    
+                      <input class="ml-3 mr-1 myRadio" id=60939ede95fe4b33c0e20f4a type="radio" value=60939ede95fe4b33c0e20f4a name = 6092b6adc184a26ce42c06d5 required>
+                      <label for=60939ede95fe4b33c0e20f4a>No</label><br>
+                    
+                  
+                
+              </div>
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">9.</span> Hypertension: <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c2f2aad4ba7d219c3313 type="radio" value=6092c2f2aad4ba7d219c3313 name=60929f063b59425cd4552e74 required>
+                <label for=6092c2f2aad4ba7d219c3313>Yes</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c2f2aad4ba7d219c3314 type="radio" value=6092c2f2aad4ba7d219c3314 name=60929f063b59425cd4552e74 required>
+                <label for=6092c2f2aad4ba7d219c3314>No</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">10.</span> Dyslipidaemia: <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c305e15df87d56aa1ed1 type="radio" value=6092c305e15df87d56aa1ed1 name=60929f1daae3815d11d4e4bf required>
+                <label for=6092c305e15df87d56aa1ed1>Yes</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c305e15df87d56aa1ed2 type="radio" value=6092c305e15df87d56aa1ed2 name=60929f1daae3815d11d4e4bf required>
+                <label for=6092c305e15df87d56aa1ed2>No</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">11.</span> Alcohol consumption: <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c31a606c217d877bc0d0 type="radio" value=6092c31a606c217d877bc0d0 name=60929f334577225d4f11fcff required>
+                <label for=6092c31a606c217d877bc0d0>Yes</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c31a606c217d877bc0d1 type="radio" value=6092c31a606c217d877bc0d1 name=60929f334577225d4f11fcff required>
+                <label for=6092c31a606c217d877bc0d1>No</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">12.</span> Smoking: <span class="requiredField">*</span></h5>
+             
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c32eb4a44c7db73fc105 type="radio" value=6092c32eb4a44c7db73fc105 name=60929f5ee1d64c5dc1a96d94 required>
+                <label for=6092c32eb4a44c7db73fc105>Yes</label><br>
+              
+                <input class="ml-3 mr-1 myRadio" id=6092c32eb4a44c7db73fc106 type="radio" value=6092c32eb4a44c7db73fc106 name=60929f5ee1d64c5dc1a96d94 required>
+                <label for=6092c32eb4a44c7db73fc106>No</label><br>
+              
+            
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">13.</span> Anthropometric measurements: <span class="requiredField">*</span></h5>
+            
+             
+              <div class="mt-3 ml-4 pl-2">
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">a.</span> Weight (in kg)</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b6eda2eaa16d894e0687 required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">b.</span> Height (in cm)</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b6fcca89af6dc1871f55 required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">c.</span> Waist Circumference (in cm)</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b71ff9237a6e20f30952 required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">d.</span> Hip Circumference (in cm)</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b72e79e8626e4f610e7b required>
+                  
+                
+              </div>
+             
+          
+            <h5 class="mx-0 mt-3 question"><span class="mb-2 question-number">14.</span> Recent clinical/laboratory examination findings <span class="requiredField">*</span></h5>
+            
+             
+              <div class="mt-3 ml-4 pl-2">
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">a.</span> HbA1C</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b789d8a8476ec599c8b7 required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">b.</span> FBS</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b7989b67f16ee4d043ca required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">c.</span> PPBS</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b7a2e6351b6f1956e2af required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">d.</span> Blood Pressure</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b7af3affc76f4d3f0c37 required>
+                  
+                
+                  <h6 class="mx-0 mt-3 subQuestion"><span class="mb-2 question-number sub-question-number">e.</span> Blood Group</h6>
+                   
+                    <input class="ml-3" type="text" name=6092b7bb07780d6f67b8b416 required>
+                  
+                
+              </div>
+             
+          
+          <div id="register-button-container" class="container pr-3">
+            <button type="submit"
+              class="mr-4 p-2"
+              >Register
+              <i class="fas fa-angle-double-right fa-md ml-2"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="registration.js"></script>
+  </body>
+</html>
